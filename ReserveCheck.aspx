@@ -50,7 +50,7 @@
                             <HeaderStyle Font-Bold="True" />
                             <ItemStyle HorizontalAlign='Center' VerticalAlign='Middle' BackColor="white" />
                             <ItemTemplate>
-                                <asp:Button Text="簽辦" runat="server" CssClass="btn btn-info" CommandArgument='<%# Eval("Form_no") %>' CommandName="viewItem" />
+                                <asp:Button Text="簽辦" runat="server" CssClass="btn btn-info" CommandArgument='<%# Eval("Form_no") %>' CommandName="editItem" />
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
