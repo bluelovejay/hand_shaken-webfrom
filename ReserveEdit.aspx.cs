@@ -51,18 +51,19 @@ namespace hand_shaken_webform
                 int selected = 0;
             string QEmp_Id = myTable.Rows[0][2].ToString().Trim();
             foreach (DataRow row in Emp_Id_Set.Rows)
-                {
+            {
                 if (row["Emp_Id"].ToString().Trim() == QEmp_Id)
-                    {
+                {
                     Emp_Id_List.SelectedIndex = selected;
                         break;
-                    }
+                }
 
                     selected++;
-                }
+            }
             Import_Date.Text = ((DateTime)myTable.Rows[0]["import_date"]).ToString("yyyy-MM-dd");
 
-            }
+        }
+
         protected void Cancel_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Reserve");
