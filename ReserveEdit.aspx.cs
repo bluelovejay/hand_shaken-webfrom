@@ -48,21 +48,43 @@ namespace hand_shaken_webform
             mat_name.Text = myTable.Rows[0]["mat_name"].ToString().Trim();
             qty.Text = myTable.Rows[0]["qty"].ToString().Trim();
             //Staff
-            int selected = 0;
+                int selected = 0;
             string QEmp_Id = myTable.Rows[0][2].ToString().Trim();
             foreach (DataRow row in Emp_Id_Set.Rows)
-            {
-                if (row["Emp_Id"].ToString().Trim() == QEmp_Id)
                 {
+                if (row["Emp_Id"].ToString().Trim() == QEmp_Id)
+                    {
                     Emp_Id_List.SelectedIndex = selected;
-                    break;
-                }
+                        break;
+                    }
 
-                selected++;
-            }
+                    selected++;
+                }
             Import_Date.Text = ((DateTime)myTable.Rows[0]["import_date"]).ToString("yyyy-MM-dd");
 
+            }
+        protected void Cancel_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Reserve");
         }
+        protected void confirm_Click(object sender, EventArgs e)
+        {
+            if (Form_No.Text.Trim() == "")
+                return;
+            string sqlstr = " update Reserve_Import_Detail set ";
+            sqlstr += " qty = " + mydb.qo(qty.Text.Trim());
+            sqlstr += " , Emp_id=" + mydb.qo(Emp_Id_List.SelectedValue.Trim());
+            sqlstr += ", Import_Date = convert(date, " + mydb.qo(Import_Date.Text) + ")";
+            sqlstr += " , Comment=" + mydb.qo(ProcessComment.Text.Trim());
+            sqlstr += " where Form_No = " + mydb.qo(Form_No.Text);
+
+            mydb.execSQL(sqlstr);
+            Response.Write(sqlstr);
+            Response.Redirect("Reserve.aspx");
+
+        }
+
+
     }
 
 }

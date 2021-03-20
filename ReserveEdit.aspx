@@ -42,11 +42,10 @@
             </td>
         </tr>
         <tr>
-            <td>
-                <a runat="server" href="~/Student">放棄</a>
-            </td>
-            <td style="text-align:left">
-                <asp:Button ID="confirm"  Text="確認更新"  runat="server"  Width="95%" CssClass="btn btn-primary"/>
+            <td></td>
+            <td >
+                <asp:Button Id="cancel" runat="server" Text="取消" Width="40%" CssClass="btn btn-danger" OnClick="Cancel_Click" />
+                <asp:Button ID="confirm"  Text="確認更新"  runat="server"  Width="40%" CssClass="btn btn-primary" OnClick="confirm_Click" />
             </td>
         </tr>
     </table>
