@@ -5,16 +5,17 @@
     <div class="row" style="margin-top: 5px;">
         <div class="col-lg-12">
             <h3 class="text-center col-lg-offset-0 thumbnail" style="background-color:#2b31ed;color:white;margin-bottom:5px;margin-top:5px">庫存項目</h3>
-            <div style="overflow: auto; height: 490px">
+            <div id="div" style="overflow: auto; height: 490px">
+                <!--查詢-->
+                <asp:TextBox ID="txtSearch" runat="server"></asp:TextBox>
+                <asp:Button Text="Search" runat="server" CssClass="btn btn-danger"  OnClick="Search"/>
+                
                 <!--   onpageindexchanging="ResGrid_PageIndexChanging"-->
-                <form class="form-inline">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
                 <asp:GridView ID="ResGrid" runat="server" BackColor="white"
                     BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" CellPadding="4"
                     AutoGenerateColumns="False" Width="100%" CellSpacing="5" OnRowCommand="ResGrid_RowCommand"
-                    ForeColor="Black" GridLines="Both" HeaderStyle-Font-Bold="True" CssClass="table-bordered">
+                    ForeColor="Black" GridLines="Both" HeaderStyle-Font-Bold="True" CssClass="table-bordered"
+                    AllowPaging="true" OnPageIndexChanging="OnPaging">
                     <Columns>
                         <asp:TemplateField HeaderText="入庫單號" HeaderStyle-Width="10%" ItemStyle-Width="10%" HeaderStyle-Font-Bold='false' HeaderStyle-BackColor="black" HeaderStyle-Font-Size="15pt" HeaderStyle-CssClass="text-center" HeaderStyle-ForeColor="white">
                             <HeaderStyle Font-Bold="True" />
@@ -62,8 +63,8 @@
                             <HeaderStyle Font-Bold="True" />
                             <ItemStyle HorizontalAlign='Center' VerticalAlign='Middle' BackColor="white" />
                             <ItemTemplate>
-                                <asp:Button Text="刪除" runat="server" CssClass="btn btn-danger" CommandArgument='<%# Eval("Form_no") %>' CommandName="Delete_Click" />
                                 <asp:Button Text="更新" runat="server" CssClass="btn btn-info" CommandArgument='<%# Eval("Form_no") %>' CommandName="Edit_Click" />
+                                <asp:Button Text="刪除" runat="server" CssClass="btn btn-danger" CommandArgument='<%# Eval("Form_no") %>' CommandName="Delete_Click" />
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>

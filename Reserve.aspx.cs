@@ -5,6 +5,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data.SqlClient;
+using System.Configuration;
 
 namespace hand_shaken_webform
 {
@@ -19,12 +21,53 @@ namespace hand_shaken_webform
             if (!Page.IsPostBack)
             {
                 showGrid();
+                this.SearchCustomers();
             };
 
         }
+        private void SearchCustomers()
+        {
+            string sqlstr = "select d.Form_No, M.mat_name,d.qty, d.Emp_Id, d.Import_Date, d.comment from Material M, Reserve_Import_Detail d where m.Mat_Id = d.mat_id ";
+            //8:已入庫
+            sqlstr += "and d.status_id = '8'";
+            if (!string.IsNullOrEmpty(txtSearch.Text.Trim()))
+            {
+                /*全文搜索*/
+                sqlstr += " and d.Form_No LIKE '%" + txtSearch.Text.Trim();
+                sqlstr += "%' UNION ";
+                sqlstr += "select d.Form_No, M.mat_name,d.qty, d.Emp_Id, d.Import_Date, d.comment from Material M, Reserve_Import_Detail d where m.Mat_Id = d.mat_id and d.status_id = '8'";
+                sqlstr += " and  M.mat_name LIKE '%" + txtSearch.Text.Trim();
+                sqlstr += "%' UNION ";
+                sqlstr += "select d.Form_No, M.mat_name,d.qty, d.Emp_Id, d.Import_Date, d.comment from Material M, Reserve_Import_Detail d where m.Mat_Id = d.mat_id and d.status_id = '8'";
+                sqlstr += " and  d.qty LIKE '%" + txtSearch.Text.Trim();
+                sqlstr += "%' UNION ";
+                sqlstr += "select d.Form_No, M.mat_name,d.qty, d.Emp_Id, d.Import_Date, d.comment from Material M, Reserve_Import_Detail d where m.Mat_Id = d.mat_id and d.status_id = '8'";
+                sqlstr += " and  d.Emp_Id LIKE '%" + txtSearch.Text.Trim();
+                sqlstr += "%' UNION ";
+                sqlstr += "select d.Form_No, M.mat_name,d.qty, d.Emp_Id, d.Import_Date, d.comment from Material M, Reserve_Import_Detail d where m.Mat_Id = d.mat_id and d.status_id = '8'";
+                sqlstr += " and  d.Import_Date LIKE '%" + txtSearch.Text.Trim();
+                sqlstr += "%' UNION ";
+                sqlstr += "select d.Form_No, M.mat_name,d.qty, d.Emp_Id, d.Import_Date, d.comment from Material M, Reserve_Import_Detail d where m.Mat_Id = d.mat_id and d.status_id = '8'";
+                sqlstr += " and d.comment LIKE '%" + txtSearch.Text.Trim();
+                sqlstr += "%'";
+                //Response.Write(sqlstr);
+                ResGrid.DataSource = mydb.GetDataTable(sqlstr);
+                ResGrid.DataBind();
+            }
+
+        }
+        protected void Search(object sender, EventArgs e)
+        {
+            this.SearchCustomers();
+        }
+        protected void OnPaging(object sender, GridViewPageEventArgs e)
+        {
+            ResGrid.PageIndex = e.NewPageIndex;
+            this.SearchCustomers();
+        }
 
         /*button用*/
-        protected void ResGrid_RowCommand(Object sender, GridViewCommandEventArgs e)
+                protected void ResGrid_RowCommand(Object sender, GridViewCommandEventArgs e)
         {
         /*依據單號去新增刪除訂單*/
         string Form_No = e.CommandArgument.ToString().Trim();
@@ -62,7 +105,7 @@ namespace hand_shaken_webform
             ResGrid.DataBind();
 
         }
-        
+
     }
 
 
