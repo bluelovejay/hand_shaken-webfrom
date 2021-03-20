@@ -14,8 +14,7 @@
                 <asp:GridView ID="ResGrid" runat="server" BackColor="white"
                     BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" CellPadding="4"
                     AutoGenerateColumns="False" Width="100%" CellSpacing="5" OnRowCommand="ResGrid_RowCommand"
-                    ForeColor="Black" GridLines="Both" HeaderStyle-Font-Bold="True" CssClass="table-bordered"
-                    AllowPaging="true" OnPageIndexChanging="OnPaging">
+                    ForeColor="Black" GridLines="Both" HeaderStyle-Font-Bold="True" CssClass="table-bordered">
                     <Columns>
                         <asp:TemplateField HeaderText="入庫單號" HeaderStyle-Width="10%" ItemStyle-Width="10%" HeaderStyle-Font-Bold='false' HeaderStyle-BackColor="black" HeaderStyle-Font-Size="15pt" HeaderStyle-CssClass="text-center" HeaderStyle-ForeColor="white">
                             <HeaderStyle Font-Bold="True" />
