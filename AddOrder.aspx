@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/hand_server.Master" AutoEventWireup="true" CodeBehind="AddOrder.aspx.cs" Inherits="hand_shaken_webform.AddOrder" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/hand_shaken.Master" AutoEventWireup="true" CodeBehind="AddOrder.aspx.cs" Inherits="hand_shaken_webform.AddOrder" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -7,6 +7,7 @@
     
     <div class="row" style="margin-top: 5px;">
         <div class="col-lg-12">
+            <!--在bootstrap.min.css加上thumbnail-->
             <h3 class="text-center col-lg-offset-0 thumbnail" style="background-color:#d71910;color:white;margin-bottom:5px;margin-top:5px">產品項目</h3>
             <div style="overflow: auto; height: 490px">
                 <asp:GridView ID="product_Grid" runat="server" BackColor="white"

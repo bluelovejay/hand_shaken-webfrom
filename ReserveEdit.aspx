@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/hand_server.Master" AutoEventWireup="true" CodeBehind="ReserveEdit.aspx.cs" Inherits="hand_shaken_webform.ReserveEdit" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/hand_shaken.Master" AutoEventWireup="true" CodeBehind="ReserveEdit.aspx.cs" Inherits="hand_shaken_webform.ReserveEdit" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <link href="Content/bootstrap.css" rel="stylesheet" />
     <h2>庫存管理更新</h2>

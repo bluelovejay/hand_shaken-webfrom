@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/hand_server.Master" AutoEventWireup="true" CodeBehind="ReserveImportView.aspx.cs" Inherits="hand_shaken_webform.ReserveImportView" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/hand_shaken.Master" AutoEventWireup="true" CodeBehind="ReserveImportView.aspx.cs" Inherits="hand_shaken_webform.ReserveImportView" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
     <h3>庫存審核單</h3>

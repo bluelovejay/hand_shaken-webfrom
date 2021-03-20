@@ -51,7 +51,7 @@ namespace hand_shaken_webform
                 Session["Emp_Id"] = Emp_Id.Text.Trim();
                 Session["Emp_Name"] = Emp_Name;
                 Session["Emp_Passwd"] = Emp_Passwd.Text.Trim();
-                Response.Redirect("~/hand_server.aspx");
+                Response.Redirect("~/AddOrder.aspx");
                 // HttpCookie Cuser_id = new HttpCookie("User_Id");
                 //Cuser_id.Value = User_Id.Text.Trim();
 
