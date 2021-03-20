@@ -127,16 +127,16 @@ namespace hand_shaken_webform
             if (addItems.Rows.Count > 0)
             {
                 
-                    //string user_id = Session["user_name"].ToString();
                     string sqlstr = " Declare @Form_No int;";
                     //sqlstr += " Begin Tran";
                     sqlstr += " select @Form_No = isnull(max(order_id), 0) + 1 ";
                     sqlstr += " from order_form;";
-                    sqlstr += " insert into order_form (order_id, created_id,status,create_time,cust_sex, cust_age) values(";
+                    sqlstr += " insert into order_form (order_id, created_id,status,create_time,cust_sex, cust_age,Emp_id) values(";
                     sqlstr += " @Form_No,"+ myDatabase.qo("1")+ ",17,getDate(),";
                     sqlstr += myDatabase.qo(cust_Sex.SelectedValue.ToString()) + ",";
-                    sqlstr += myDatabase.qo(cust_Age.SelectedValue.ToString()) + ");";
-                    sqlstr += " insert into order_detail (order_id, prod_id,qty,sugur_type,ice_type) values";
+                    sqlstr += myDatabase.qo(cust_Age.SelectedValue.ToString()) + ",";
+                    sqlstr += myDatabase.qo(Session["Emp_id"].ToString().Trim()) + ");";
+                sqlstr += " insert into order_detail (order_id, prod_id,qty,sugur_type,ice_type) values";
                     for (int i = 0; i < addItems.Rows.Count; i++)
                     {
                         DataRow row = addItems.Rows[i];

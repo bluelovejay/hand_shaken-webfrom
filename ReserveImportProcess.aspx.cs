@@ -52,8 +52,9 @@ namespace hand_shaken_webform
         protected void confirm_Click(object sender, EventArgs e)
         {
 
-            string sqlstr = "update Reserve_Import set status_id=" + mydb.qo(StatusList.SelectedValue.Trim());
-            sqlstr += " ,Import_Date = convert(datetime," + mydb.qo(Import_Date.Text) + ")";
+            string sqlstr = "update Reserve_Import set Import_Date = convert(datetime," + mydb.qo(Import_Date.Text) + ")";
+            sqlstr += " ,Comment =" + mydb.qo(Comment.Text);
+            sqlstr += " ,status_id =" + mydb.qo(StatusList.SelectedValue.Trim());
             sqlstr += " where form_no=" + Form_No.Text;
             //Verify
             sqlstr += " declare @Form_No int ";
@@ -62,7 +63,7 @@ namespace hand_shaken_webform
             //sqlstr += "'IMPORT',";
             sqlstr += Form_No.Text + ",";
             //sqlstr += "@Form_No,";
-            sqlstr += mydb.qo(Session["Emp_Name"].ToString()) + ",";
+            sqlstr += mydb.qo(Session["Emp_Name"].ToString().Trim()) + ",";
             sqlstr += " getdate(),";
             sqlstr += mydb.qo(StatusList.SelectedValue.Trim()) +",";
             string opinion = "▼" + Session["Emp_Name"].ToString() + "於" + DateTime.Now.ToString() + "簽辦意見:" + ProcessComment.Text.Trim();
@@ -76,7 +77,7 @@ namespace hand_shaken_webform
             Response.Redirect("~/ReserveCheck");
         }
 
-            public static void ShowMessageBox(Page page, string message)
+        /*public static void ShowMessageBox(Page page, string message)
         {
             Type cstype = page.GetType();
 
@@ -94,7 +95,7 @@ namespace hand_shaken_webform
 
             //Execute the new script number that we found
             cs.RegisterStartupScript(cstype, "PopupScript" + ScriptNumber, "alert('" + message + "');", true);
-        }
+        }*/
 
 
         void showGrid()
@@ -108,22 +109,23 @@ namespace hand_shaken_webform
             string sqlstr = "select * from Reserve_Import where form_no = " + Form_No.Text;
             DataTable myTable = mydb.GetDataTable(sqlstr);
             /*讀取登入者名稱*/
-            Emp_Id.Text = mydb.qo(Session["Emp_Name"].ToString());
-            //
+            Emp_Id.Text = Session["Emp_Name"].ToString().Trim();
+            Response.Write(Emp_Id.Text);
+            //狀態
             string status = myTable.Rows[0]["Status_Id"].ToString().Trim();
             for (int idx = 0; idx < StatusList.Items.Count; idx++)
             {
                 if (status == StatusList.Items[idx].Value.Trim())
                     StatusList.SelectedIndex = idx;
             }
-            //讀取資料
-            Import_Date.Text = ((DateTime)myTable.Rows[0]["import_date"]).ToString("yyyy-MM-dd");// DateTime.Now.ToString("yyyy-MM-dd");//myTable.Rows[0]["import_date"].ToString();
-            //
+            //日期:讀取資料
+            Import_Date.Text = ((DateTime)myTable.Rows[0]["import_date"]).ToString("yyyy-MM-dd");
+            //廠商
             Vendor_Id.Text = myTable.Rows[0]["Vendor_Id"].ToString().Trim();
             sqlstr = " select vendor_name from vendor where vendor_id=" + mydb.qo(Vendor_Id.Text);
             Vendor_Name.Text = mydb.getSingleData(0, sqlstr);
-            //
-            Comment.Text = myTable.Rows[0]["Comment"].ToString().Trim();
+            //備註
+            /*Comment.Text = myTable.Rows[0]["Comment"].ToString().Trim();*/
             //-------------------------
             //Material_Import_Detail
             sqlstr = "select  d.Form_No as Form_No, d.mat_id as mat_id, m.mat_name as mat_name, d.qty as qty, d.price as price, d.comment as comment ";
@@ -139,10 +141,10 @@ namespace hand_shaken_webform
             ProcessGrid.DataBind();
 
         }
-        protected void CommentList_SelectedIndexChanged(object sender, EventArgs e)
+        /*protected void CommentList_SelectedIndexChanged(object sender, EventArgs e)
         {
             ProcessComment.Text = CommentList.SelectedItem.Text;
-        }
+        }*/
 
 
     }
