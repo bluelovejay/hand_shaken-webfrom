@@ -40,26 +40,26 @@ namespace hand_shaken_webform
 
             
         }
-        void getDetail()
-        {
-            string sqlstr = "select d.Form_No, M.mat_name,d.qty, d.Emp_Id, d.Import_Date, d.comment from Material M, Reserve_Import_Detail d where m.Mat_Id = d.mat_id and Form_No =" + mydb.qo(Form_No.Text);
-            DataTable myTable = mydb.GetDataTable(sqlstr);
+            void getDetail()
+            {
+                string sqlstr = "select d.Form_No, M.mat_name,d.qty, d.Emp_Id, d.Import_Date, d.comment from Material M, Reserve_Import_Detail d where m.Mat_Id = d.mat_id and Form_No =" + mydb.qo(Form_No.Text);
+                DataTable myTable = mydb.GetDataTable(sqlstr);
             /*抓資料庫資料*/
             mat_name.Text = myTable.Rows[0]["mat_name"].ToString().Trim();
             qty.Text = myTable.Rows[0]["qty"].ToString().Trim();
             //Staff
-            int selected = 0;
+                int selected = 0;
             string QEmp_Id = myTable.Rows[0][2].ToString().Trim();
             foreach (DataRow row in Emp_Id_Set.Rows)
-            {
-                if (row["Emp_Id"].ToString().Trim() == QEmp_Id)
                 {
+                if (row["Emp_Id"].ToString().Trim() == QEmp_Id)
+                    {
                     Emp_Id_List.SelectedIndex = selected;
-                    break;
-                }
+                        break;
+                    }
 
-                selected++;
-            }
+                    selected++;
+                }
             Import_Date.Text = ((DateTime)myTable.Rows[0]["import_date"]).ToString("yyyy-MM-dd");
 
         }

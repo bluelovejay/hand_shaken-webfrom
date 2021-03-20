@@ -33,7 +33,6 @@ namespace hand_shaken_webform
         protected global::System.Web.UI.WebControls.Label mat_name;
 
         /// <summary>
-        /// qty 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
