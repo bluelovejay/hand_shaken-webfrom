@@ -57,16 +57,20 @@ namespace hand_shaken_webform
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Import_Date;
+<<<<<<<<< Temporary merge branch 1
+        protected global::System.Web.UI.WebControls.Label Emp_Id;
 
         /// <summary>
-        /// ProcessComment 控制項。
+        /// import_date 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ProcessComment;
+        protected global::System.Web.UI.WebControls.LinkButton import_date;
+=========
+        protected global::System.Web.UI.WebControls.TextBox Import_Date;
+>>>>>>>>> Temporary merge branch 2
 
         /// <summary>
         /// cancel 控制項。
