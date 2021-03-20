@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="hand_server.Master.cs" Inherits="hand_shaken_webform.hand_server_view" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="hand_shaken.Master.cs" Inherits="hand_shaken_webform.hand_server_view" %>
 
 <!DOCTYPE html>
 
@@ -22,10 +22,12 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <!--頁簽抬頭-->
     <title><%: Page.Title %> 手搖飲品管理系統</title>
 
-    <asp:ContentPlaceHolder ID="head" runat="server">
+    <asp:ContentPlaceHolder ID="head1" runat="server">
          <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:ContentPlaceHolder>
     <webopt:bundlereference runat="server" path="~/Content/css" />
@@ -38,6 +40,7 @@
             <Scripts>
                 <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
                 <%--Framework Scripts--%>
+                
                 <asp:ScriptReference Name="MsAjaxBundle" />
                 <asp:ScriptReference Name="jquery" />
                 <asp:ScriptReference Name="bootstrap" />
@@ -83,8 +86,8 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >庫存管理</a>
                             <div class="dropdown-menu">
-                                <a  class="dropdown-item" href="ReserveCheck.aspx">庫存審核單</a>
-                                <a  class="dropdown-item" href="Reserve.aspx">庫存清單</a>
+                                <a  class="dropdown-item" href="ReserveCheck.aspx">入庫審核單</a>
+                                <a  class="dropdown-item" href="Reserve.aspx">庫存統計</a>
                             </div>
 
                         </li>
@@ -121,13 +124,16 @@
                 </div>
             </div>
         </div>
+        <!--不要滿版-->
         <div class="container body-content">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            <asp:ContentPlaceHolder ID="MainContent1" runat="server">
             
             </asp:ContentPlaceHolder>
             <hr />
         </div>
 
     </form>
+    <script src="Scripts/bootstrap.js"></script>
+                <script src="Scripts/jquery-3.4.1.min.js"></script>
 </body>
 </html>

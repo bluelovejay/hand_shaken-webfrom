@@ -1,7 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/hand_server.Master" AutoEventWireup="true" CodeBehind="ReserveCheck.aspx.cs" Inherits="hand_shaken_webform.ReserveCheck" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/hand_shaken.Master" AutoEventWireup="true" CodeBehind="ReserveCheck.aspx.cs" Inherits="hand_shaken_webform.ReserveCheck" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-    <h3>庫存審核單</h3>
+    <h3>庫存管理/入庫審核單</h3>
     <div>
         <asp:GridView ID="ResGrid" runat="server" BackColor="White" 
             BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" 

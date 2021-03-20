@@ -1,0 +1,85 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="hand_shaken.master.cs" Inherits="hand_shaken_webform.hand_shaken" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <!--頁簽抬頭-->
+    <title>李圓圓訂餐系統</title>
+    <!--頁簽icon-->
+    <link href="~/img/icon.jpg" rel="shortcut icon" type="image/x-icon" />
+    <asp:ContentPlaceHolder ID="head1" runat="server">
+         <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:ContentPlaceHolder>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/bootstrap-grid.css" rel="stylesheet" />
+    <link href="Content/bootstrap-reboot.css" rel="stylesheet" />
+    <style type="text/css">
+        .auto-style1 {
+            font-family: 微軟正黑體;
+            font-weight: bold;
+            text-align: center;
+            font-size:30px;
+        }
+        .dropdown-menu-bg {
+            background-color: #94c8ed;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+            <nav class="navbar navbar-expand-sm navbar-dark " style="background-color: #222c33;">
+                <a class ="navbar-brand" href="AddOrder.aspx">
+                    <img src="img/MicrosoftTeams-image.png" width="60" height="50" class="d-inline-block align-top" alt="">
+                    <span class="auto-style1">李圓圓訂餐系統</span>
+                </a>
+                <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size:25px;">訂單管理</a>
+                            <div class="dropdown-menu dropdown-menu-bg">
+                                <a  class="dropdown-item" href="AddOrder">新增訂購單</a>
+                                <a  class="dropdown-item" href="OrderViewByBackstage">檢視訂購單(後台)</a>
+                                <a  class="dropdown-item" href="OrderViewByFrontDesk">檢視訂購單(前台)</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size:25px;">進貨管理</a>
+                            <div class="dropdown-menu dropdown-menu-bg">
+                                <a  class="dropdown-item" href="#">進貨單審核</a>
+                                <a  class="dropdown-item" href="#">進貨單管理</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown ">
+                            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size:25px;">庫存管理</a>
+                            <div class="dropdown-menu dropdown-menu-bg">
+                                <a  class="dropdown-item" href="ReserveCheck.aspx">入庫審核單</a>
+                                <a  class="dropdown-item" href="Reserve.aspx">庫存統計</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="Login.aspx" style="font-size:25px;">登出</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        <!--不要滿版-->
+        <div class="container body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+    <script src="Scripts/jquery-3.4.1.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+</body>
+</html>
