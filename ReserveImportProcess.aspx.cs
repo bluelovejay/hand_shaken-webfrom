@@ -35,7 +35,7 @@ namespace hand_shaken_webform
         /*進貨明細*/
         void prepareStatusList()
         {
-            string sqlstr = "select '' as status_id, '請選擇現況' as comment union(select status_id, comment from status where class='Reserve') order by status_id";
+            string sqlstr = "select '' as status_id, '請選擇現況' as Status union(select status_id, Status from status where class='Reserve') order by status_id";
             StatusList.DataSource = mydb.GetDataTable(sqlstr);
             StatusList.DataBind();
         }

@@ -135,7 +135,7 @@
                         <tr>
                             <td>現況</td>
                             <td>
-                                <asp:Dropdownlist ID="StatusList"  DataTextField='Comment'  DataValueField="Status_Id" runat="server"  CssClass="form-control" width="100%"  />
+                                <asp:Dropdownlist ID="StatusList"  DataTextField='Status'  DataValueField="Status_Id" runat="server"  CssClass="form-control" width="100%"  />
                             </td>
                         </tr>
                         <tr>
