@@ -52,7 +52,7 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size:25px;">進貨管理</a>
                             <div class="dropdown-menu dropdown-menu-bg">
-                                <a  class="dropdown-item" href="#">進貨單審核</a>
+                                <a  class="dropdown-item" href="MaterialCheck.aspx">進貨單審核</a>
                                 <a  class="dropdown-item" href="#">進貨單管理</a>
                             </div>
                         </li>

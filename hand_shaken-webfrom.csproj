@@ -127,8 +127,10 @@
     <Content Include="Login.aspx" />
     <Content Include="myBootstrap.html" />
     <Content Include="Reserve.aspx" />
+    <Content Include="MaterialCheck.aspx" />
     <Content Include="ReserveCheck.aspx" />
     <Content Include="ReserveEdit.aspx" />
+    <Content Include="MaterialImportProcess.aspx" />
     <Content Include="ReserveImportProcess.aspx" />
     <Content Include="ReserveImportView.aspx" />
     <Content Include="Contact.aspx" />
@@ -313,6 +315,13 @@
     <Compile Include="Reserve.aspx.designer.cs">
       <DependentUpon>Reserve.aspx</DependentUpon>
     </Compile>
+    <Compile Include="MaterialCheck.aspx.cs">
+      <DependentUpon>MaterialCheck.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MaterialCheck.aspx.designer.cs">
+      <DependentUpon>MaterialCheck.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ReserveCheck.aspx.cs">
       <DependentUpon>ReserveCheck.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -326,6 +335,13 @@
     </Compile>
     <Compile Include="ReserveEdit.aspx.designer.cs">
       <DependentUpon>ReserveEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MaterialImportProcess.aspx.cs">
+      <DependentUpon>MaterialImportProcess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MaterialImportProcess.aspx.designer.cs">
+      <DependentUpon>MaterialImportProcess.aspx</DependentUpon>
     </Compile>
     <Compile Include="ReserveImportProcess.aspx.cs">
       <DependentUpon>ReserveImportProcess.aspx</DependentUpon>
