@@ -14,7 +14,7 @@ namespace hand_shaken_webform
         {
             if (!Page.IsPostBack)
             {
-                string sqlstr = "select s.comment AS Status, r.Form_No as form_no, r.Emp_Id as Emp_Id, r.import_date as import_date, r.comment as comment";
+                string sqlstr = "select s.Status AS Status, r.Form_No as form_no, r.Emp_Id as Emp_Id, r.import_date as import_date, r.comment as comment";
                 sqlstr += " from reserve_Import r,Status s ";
                 sqlstr += " where s.status_id = r.status_id";
                 ResGrid.DataSource = mydb.GetDataTable(sqlstr);

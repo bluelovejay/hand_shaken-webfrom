@@ -16,10 +16,12 @@ namespace hand_shaken_webform
             {
                 /*顯示在GridView*/
                 string sqlstr = "Select M.Form_No , mat.mat_name ,M.Emp_Id ,M.Form_Date, M.Import_Date, v.Vendor_Name,p.Pay_Name";
-                sqlstr += " from Material_Import M , Material mat , Vendor v , Pay p ";
+                sqlstr += " from Material_Import M , Material mat , Vendor v , Pay p,Status s";
                 sqlstr += " where M.mat_id = mat.mat_id";
                 sqlstr += " and M.Vendor_id =v.Vendor_Id";
                 sqlstr += " and M.Pay_id = p.Pay_Id";
+                sqlstr += " and M.Status_id= s.Status_Id";
+                sqlstr += " and s.Class='Material'";
                 ResGrid.DataSource = mydb.GetDataTable(sqlstr);
                 ResGrid.DataBind();
             }
@@ -45,6 +47,11 @@ namespace hand_shaken_webform
                 default:
                     break;
             }
+        }
+
+        protected void AddBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/MaterialAdd.aspx");
         }
     }
 }

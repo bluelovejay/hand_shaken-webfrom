@@ -35,11 +35,11 @@ namespace hand_shaken_webform
         /*進貨明細*/
         void prepareStatusList()
         {
-            string sqlstr = "select '' as status_id, '' as comment union(select status_id, comment from status where class='Reserve') order by status_id";
+            string sqlstr = "select '' as status_id, '請選擇現況' as comment union(select status_id, comment from status where class='Reserve') order by status_id";
             StatusList.DataSource = mydb.GetDataTable(sqlstr);
             StatusList.DataBind();
         }
-        /*驗貨情況*/
+        /*簽辦意見*/
         /*
         void prepareProcessCommentList()
         {
@@ -110,8 +110,8 @@ namespace hand_shaken_webform
             DataTable myTable = mydb.GetDataTable(sqlstr);
             /*讀取登入者名稱*/
             Emp_Id.Text = Session["Emp_Name"].ToString().Trim();
-            Response.Write(Emp_Id.Text);
-            //狀態
+            //Response.Write(Emp_Id.Text);
+            //狀態List
             string status = myTable.Rows[0]["Status_Id"].ToString().Trim();
             for (int idx = 0; idx < StatusList.Items.Count; idx++)
             {
@@ -122,6 +122,7 @@ namespace hand_shaken_webform
             Import_Date.Text = ((DateTime)myTable.Rows[0]["import_date"]).ToString("yyyy-MM-dd");
             //廠商
             Vendor_Id.Text = myTable.Rows[0]["Vendor_Id"].ToString().Trim();
+            /*用廠商ID抓名稱*/
             sqlstr = " select vendor_name from vendor where vendor_id=" + mydb.qo(Vendor_Id.Text);
             Vendor_Name.Text = mydb.getSingleData(0, sqlstr);
             //備註

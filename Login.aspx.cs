@@ -40,7 +40,7 @@ namespace hand_shaken_webform
                 Session["password"] = Password.Text.Trim();*/
 
 
-                string sqlstr = "select Emp_Name from Staff where Emp_Id = " + mydb.qo(Emp_Id.Text.Trim());
+            string sqlstr = "select Emp_Name from Staff where Emp_Id = " + mydb.qo(Emp_Id.Text.Trim());
             sqlstr += " and Emp_Passwd = " + mydb.qo(Emp_Passwd.Text.Trim());
             string Emp_Name = mydb.getSingleData(0, sqlstr).Trim();
             if (Emp_Name == "")

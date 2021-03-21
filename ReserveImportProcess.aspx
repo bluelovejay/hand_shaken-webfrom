@@ -116,7 +116,7 @@
                         <tr>
                             <td>入庫時間</td>
                             <td>
-                                <asp:textbox ID="Import_Date" Text='<%# Eval("Import_Date") %>' runat="server" CssClass="form-control" type="date"  />
+                                <asp:textbox ID="Import_Date" Text='<%# Convert.ToDateTime(Eval("Import_Date")).ToString("yyyy/MM/dd") %>' runat="server" CssClass="form-control" type="date"  />
                             </td>
                         </tr>
                         <tr>

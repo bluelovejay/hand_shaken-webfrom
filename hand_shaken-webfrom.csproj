@@ -125,10 +125,12 @@
     <Content Include="img\MicrosoftTeams-image.png" />
     <Content Include="img\李圓圓.jpg" />
     <Content Include="Login.aspx" />
+    <Content Include="MaterialEdit.aspx" />
     <Content Include="myBootstrap.html" />
     <Content Include="Reserve.aspx" />
     <Content Include="MaterialCheck.aspx" />
     <Content Include="ReserveCheck.aspx" />
+    <Content Include="MaterialAdd.aspx" />
     <Content Include="ReserveEdit.aspx" />
     <Content Include="MaterialImportProcess.aspx" />
     <Content Include="ReserveImportProcess.aspx" />
@@ -308,6 +310,13 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="MaterialEdit.aspx.cs">
+      <DependentUpon>MaterialEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MaterialEdit.aspx.designer.cs">
+      <DependentUpon>MaterialEdit.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Reserve.aspx.cs">
       <DependentUpon>Reserve.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -328,6 +337,13 @@
     </Compile>
     <Compile Include="ReserveCheck.aspx.designer.cs">
       <DependentUpon>ReserveCheck.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MaterialAdd.aspx.cs">
+      <DependentUpon>MaterialAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MaterialAdd.aspx.designer.cs">
+      <DependentUpon>MaterialAdd.aspx</DependentUpon>
     </Compile>
     <Compile Include="ReserveEdit.aspx.cs">
       <DependentUpon>ReserveEdit.aspx</DependentUpon>

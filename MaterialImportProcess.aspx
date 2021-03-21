@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/hand_shaken.Master" AutoEventWireup="true" CodeBehind="MaterialImportProcess.aspx.cs" Inherits="hand_shaken_webform.MaterialImportProcess" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <h3>庫存審核單</h3>
+    <h3>進驗貨單審核</h3>
     <hr />
     <div class="row" style="margin-top: 5px;">
             <div class="col-md-6" >
@@ -58,7 +58,7 @@
                     </asp:GridView>
                 </div>
 
-                <h3 class="text-center col-lg-offset-0 thumbnail" style="background-color:#62ff89;color:white;margin-bottom:5px;margin-top:5px; color:darkslategrey">驗貨流程</h3>
+                <h3 class="text-center col-lg-offset-0 thumbnail" style="background-color:#62ff89;color:white;margin-bottom:5px;margin-top:5px; color:darkslategrey">進驗貨流程</h3>
                 <div style="overflow: auto; height: 500px">
                     <asp:GridView ID="ProcessGrid" runat="server" BackColor="white"
                         BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" CellPadding="4"
@@ -66,28 +66,35 @@
                         CaptionAlign="Top" ForeColor="Black" GridLines="Vertical" HeaderStyle-Font-Bold="True" 
                         CssClass="table-bordered" ShowFooter="True">
                         <Columns>
-                            <asp:TemplateField HeaderText="進貨單號" ItemStyle-Width="10%" HeaderStyle-Font-Bold='false' HeaderStyle-BackColor="darkkhaki" HeaderStyle-Font-Size="15pt" HeaderStyle-CssClass="text-center" HeaderStyle-ForeColor="#663300">
+                            <asp:TemplateField HeaderText="現況" ItemStyle-Width="10%" HeaderStyle-Font-Bold='false' HeaderStyle-BackColor="darkkhaki" HeaderStyle-Font-Size="15pt" HeaderStyle-CssClass="text-center" HeaderStyle-ForeColor="#663300">
+                                <HeaderStyle Font-Bold="True" />
+                                <ItemStyle HorizontalAlign='Center' VerticalAlign="Middle" BackColor="white" />
+                                <ItemTemplate>
+                                    <asp:Label ID="Status" Text='<%# Eval("Status") %>' runat="server" />
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="進驗貨單號" ItemStyle-Width="10%" HeaderStyle-Font-Bold='false' HeaderStyle-BackColor="darkkhaki" HeaderStyle-Font-Size="15pt" HeaderStyle-CssClass="text-center" HeaderStyle-ForeColor="#663300">
                                 <HeaderStyle Font-Bold="True" />
                                 <ItemStyle HorizontalAlign='Center' VerticalAlign="Middle" BackColor="white" />
                                 <ItemTemplate>
                                     <asp:Label ID="Form_No" Text='<%# Eval("Form_No") %>' runat="server" />
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="簽辦人" ItemStyle-Width="10%" HeaderStyle-Font-Bold='false' HeaderStyle-BackColor="darkkhaki" HeaderStyle-Font-Size="15pt" HeaderStyle-CssClass="text-center" HeaderStyle-ForeColor="#663300">
+                            <asp:TemplateField HeaderText="進驗貨人" ItemStyle-Width="10%" HeaderStyle-Font-Bold='false' HeaderStyle-BackColor="darkkhaki" HeaderStyle-Font-Size="15pt" HeaderStyle-CssClass="text-center" HeaderStyle-ForeColor="#663300">
                                 <HeaderStyle Font-Bold="True" />
                                 <ItemStyle HorizontalAlign='Center' VerticalAlign="Middle" BackColor="white" />
                                 <ItemTemplate>
                                     <asp:Label ID="Emp_Id" Text='<%# Eval("Emp_Id") %>' runat="server" />
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="簽辦時間" ItemStyle-Width="10%" HeaderStyle-Font-Bold='false' HeaderStyle-BackColor="darkkhaki" HeaderStyle-Font-Size="15pt" HeaderStyle-CssClass="text-center" HeaderStyle-ForeColor="#663300">
+                            <asp:TemplateField HeaderText="進驗貨時間" ItemStyle-Width="10%" HeaderStyle-Font-Bold='false' HeaderStyle-BackColor="darkkhaki" HeaderStyle-Font-Size="15pt" HeaderStyle-CssClass="text-center" HeaderStyle-ForeColor="#663300">
                                 <HeaderStyle Font-Bold="True" />
                                 <ItemStyle HorizontalAlign='Center' VerticalAlign="Middle" BackColor="white" />
                                 <ItemTemplate>
                                     <asp:Label ID="Verify_Date" Text='<%# Convert.ToDateTime(Eval("Verify_Date")).ToString("yyyy/MM/dd") %>' runat="server" />
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="意見" ItemStyle-Width="10%" HeaderStyle-Font-Bold='false' HeaderStyle-BackColor="darkkhaki" HeaderStyle-Font-Size="15pt" HeaderStyle-CssClass="text-center" HeaderStyle-ForeColor="#663300">
+                            <asp:TemplateField HeaderText="備註" ItemStyle-Width="10%" HeaderStyle-Font-Bold='false' HeaderStyle-BackColor="darkkhaki" HeaderStyle-Font-Size="15pt" HeaderStyle-CssClass="text-center" HeaderStyle-ForeColor="#663300">
                                 <HeaderStyle Font-Bold="True" />
                                 <ItemStyle HorizontalAlign='Center' VerticalAlign="Middle" BackColor="white" />
                                 <ItemTemplate>
@@ -99,24 +106,24 @@
                 </div>
             </div>
             <div class="col-md-6" >
-                <h3 class="text-center col-lg-offset-0 thumbnail" style="background-color:#f64040;color:white;margin-bottom:5px;margin-top:5px; color:darkslategrey">入庫簽辦單</h3>
+                <h3 class="text-center col-lg-offset-0 thumbnail" style="background-color:#f64040;color:white;margin-bottom:5px;margin-top:5px; color:darkslategrey">進驗貨簽辦單</h3>
                     <table class="table table-bordered;" style=" width:500px">
                         <tr>
-                            <td>進貨單號</td>
+                            <td>進驗貨單號</td>
                             <td>
                                 <asp:label ID="Form_No" Text='<%# Eval("Form_No") %>'  runat="server"  CssClass="form-control-plaintext"/>
                             </td>
                         </tr>
                         <tr>
-                            <td>入庫人</td>
+                            <td>進驗貨人</td>
                             <td>
                                 <asp:label ID="Emp_Id" Text='<%# Eval("Emp_Id") %>'  runat="server"  CssClass="form-control-plaintext"/>
                             </td>
                         </tr>
                         <tr>
-                            <td>入庫時間</td>
+                            <td>進驗貨時間</td>
                             <td>
-                                <asp:textbox ID="Import_Date" Text='<%# Eval("Import_Date") %>' runat="server" CssClass="form-control" type="date"  />
+                                <asp:textbox ID="Import_Date" Text='<%# Convert.ToDateTime(Eval("Import_Date")).ToString("yyyy/MM/dd") %>' runat="server" CssClass="form-control" type="date"  />
                             </td>
                         </tr>
                         <tr>
@@ -129,13 +136,19 @@
                         <tr>
                             <td>備註</td>
                             <td>
-                                <asp:textbox ID="Comment"   runat="server"  CssClass="form-control" TextMode="MultiLine"/>
+                                <asp:label ID="Comment" Text='<%# Eval("Comment") %>'   runat="server" CssClass="form-control-plaintext"/>
                             </td>
                         </tr>
                         <tr>
                             <td>現況</td>
                             <td>
-                                <asp:Dropdownlist ID="StatusList"  DataTextField='Comment'  DataValueField="Status_Id" runat="server"  CssClass="form-control" width="100%"  />
+                                <asp:Dropdownlist ID="StatusList"  DataTextField='Status'  DataValueField="Status_Id" runat="server"  CssClass="form-control" width="100%"  />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>付款方式</td>
+                            <td>
+                                <asp:Dropdownlist ID="PayList"  DataTextField='Pay_name'  DataValueField="Pay_Id" runat="server"  CssClass="form-control" width="100%"  />
                             </td>
                         </tr>
                         <tr>

@@ -11,26 +11,8 @@ namespace hand_shaken_webform
 {
 
 
-    public partial class MaterialImportProcess
+    public partial class MaterialEdit
     {
-
-        /// <summary>
-        /// ResGrid 控制項。
-        /// </summary>
-        /// <remarks>
-        /// 自動產生的欄位。
-        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView ResGrid;
-
-        /// <summary>
-        /// ProcessGrid 控制項。
-        /// </summary>
-        /// <remarks>
-        /// 自動產生的欄位。
-        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView ProcessGrid;
 
         /// <summary>
         /// Form_No 控制項。
@@ -42,13 +24,31 @@ namespace hand_shaken_webform
         protected global::System.Web.UI.WebControls.Label Form_No;
 
         /// <summary>
-        /// Emp_Id 控制項。
+        /// mat_name 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Emp_Id;
+        protected global::System.Web.UI.WebControls.Label mat_name;
+
+        /// <summary>
+        /// qty 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox qty;
+
+        /// <summary>
+        /// Emp_Id_List 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList Emp_Id_List;
 
         /// <summary>
         /// Import_Date 控制項。
@@ -60,51 +60,6 @@ namespace hand_shaken_webform
         protected global::System.Web.UI.WebControls.TextBox Import_Date;
 
         /// <summary>
-        /// Vendor_Name 控制項。
-        /// </summary>
-        /// <remarks>
-        /// 自動產生的欄位。
-        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Vendor_Name;
-
-        /// <summary>
-        /// Vendor_Id 控制項。
-        /// </summary>
-        /// <remarks>
-        /// 自動產生的欄位。
-        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Vendor_Id;
-
-        /// <summary>
-        /// Comment 控制項。
-        /// </summary>
-        /// <remarks>
-        /// 自動產生的欄位。
-        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Comment;
-
-        /// <summary>
-        /// StatusList 控制項。
-        /// </summary>
-        /// <remarks>
-        /// 自動產生的欄位。
-        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList StatusList;
-
-        /// <summary>
-        /// PayList 控制項。
-        /// </summary>
-        /// <remarks>
-        /// 自動產生的欄位。
-        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList PayList;
-
-        /// <summary>
         /// ProcessComment 控制項。
         /// </summary>
         /// <remarks>
@@ -114,6 +69,15 @@ namespace hand_shaken_webform
         protected global::System.Web.UI.WebControls.TextBox ProcessComment;
 
         /// <summary>
+        /// cancel 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button cancel;
+
+        /// <summary>
         /// confirm 控制項。
         /// </summary>
         /// <remarks>
@@ -121,14 +85,5 @@ namespace hand_shaken_webform
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button confirm;
-
-        /// <summary>
-        /// Cancel 控制項。
-        /// </summary>
-        /// <remarks>
-        /// 自動產生的欄位。
-        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Cancel;
     }
 }

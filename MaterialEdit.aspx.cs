@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace hand_shaken_webform
 {
-    public partial class ReserveEdit : System.Web.UI.Page
+    public partial class MaterialEdit : System.Web.UI.Page
     {
         dbClass mydb = new dbClass();
         public DataTable Emp_Id_Set;
@@ -25,7 +25,7 @@ namespace hand_shaken_webform
                 if (Request.QueryString["Form_No"] != null)
                     Form_No.Text = Request.QueryString["Form_No"].ToString().Trim();
                 else
-                    Response.Redirect("~/Reserve.aspx");
+                    Response.Redirect("~/Reserve");
                 /*抓取使用者帳號*/
                 prepareStaff(); Emp_Id_List.DataSource = Emp_Id_Set; Emp_Id_List.DataBind();
                 getDetail();

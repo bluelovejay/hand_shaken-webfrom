@@ -2,6 +2,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h3>進貨管理/進貨單審核</h3>
     <hr>
+    <div style="text-align:right">
+        <asp:Button Text="新增" runat="server" CssClass="btn btn-warning" OnClick="AddBtn_Click"/>
+    </div>
     <div class="row" style="margin-top: 5px;">
         <div class="col-lg-12">
             <h3 class="text-center col-lg-offset-0 thumbnail" style="background-color:#2b31ed;color:white;margin-bottom:5px;margin-top:5px">審核單項目</h3>
@@ -39,7 +42,7 @@
                                 <asp:Label ID="form_date" Text='<%# Convert.ToDateTime(Eval("form_date")).ToString("yyyy/MM/dd") %>' runat="server" VerticalAlign='middle' Font-Size="15pt" CommandName="viewItem"  CommandArgument='<%# Eval("form_no") %>'/>
                             </ItemTemplate>
                         </asp:TemplateField>
-                        <asp:TemplateField HeaderText="預估進貨時間" HeaderStyle-Width="10%" ItemStyle-Width="10%" HeaderStyle-Font-Bold='false' HeaderStyle-BackColor="black" HeaderStyle-Font-Size="15pt" HeaderStyle-CssClass="text-center" HeaderStyle-ForeColor="white">
+                        <asp:TemplateField HeaderText="進貨時間" HeaderStyle-Width="10%" ItemStyle-Width="10%" HeaderStyle-Font-Bold='false' HeaderStyle-BackColor="black" HeaderStyle-Font-Size="15pt" HeaderStyle-CssClass="text-center" HeaderStyle-ForeColor="white">
                             <HeaderStyle Font-Bold="True" />
                             <ItemStyle HorizontalAlign='Center' VerticalAlign='Middle' BackColor="white" />
                             <ItemTemplate>
